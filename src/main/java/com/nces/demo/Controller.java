@@ -86,13 +86,4 @@ public class Controller {
         assert cur != null;
         return Arrays.stream(cur).toList();
     }
-
-    @PostMapping(value = "/dynamics", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void PostHistoryCurrency(@RequestBody Currency currency) {
-        RestTemplate restTemplate = restTemplateBuilder.build();
-        ResponseEntity<CurrencyAbbreviation[]> responseEntity = restTemplate.getForEntity(
-                curIdUrl, CurrencyAbbreviation[].class);
-        return;
-    }
-
 }
