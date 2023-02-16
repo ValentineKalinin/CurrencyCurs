@@ -3,35 +3,12 @@ package com.nces.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.awt.*;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-
 @SpringBootApplication
-public class TestApplication {
+public class TestApplication implements browse {
 
     public static void main(String[] args) {
         SpringApplication.run(TestApplication.class, args);
-        browse("http://localhost:63342/demo/static/index.html");
-        System.out.println("app started");
-    }
-
-    public static void browse(String url) {
-        if (Desktop.isDesktopSupported()) {
-            Desktop desktop = Desktop.getDesktop();
-            try {
-                desktop.browse(new URI(url));
-            } catch (IOException | URISyntaxException e) {
-                e.printStackTrace();
-            }
-        } else {
-            Runtime runtime = Runtime.getRuntime();
-            try {
-                runtime.exec("rundll32 url.dll,FileProtocolHandler " + url);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        browse.browser("http://localhost:63342/demo/static/form.html");
+        // System.out.println("App started");
     }
 }
