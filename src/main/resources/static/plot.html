@@ -18,7 +18,7 @@
         .then(data => {
             // Parse the JSON data
             const values = data.map(obj => ({
-                date: obj.Date.substring(0, 6) + obj.Date.substring(8, 10),
+                date: obj.Date.substring(3, 10),
                 rate: obj.Cur_OfficialRate
             }));
 
@@ -31,7 +31,6 @@
             const min = Math.floor(Math.min(...values.map(obj => obj.rate)));
             const Xstep = (canvas.width - 50) / values.length;
             const Ystep = (canvas.height - 100) / (max - min);
-            const Xgrid = (canvas.width - 50) / 10;
             const Ygrid = (canvas.height - 100) / 5;
 
             // Draw contour line of plot
@@ -47,10 +46,6 @@
                 ctx.moveTo(50, i * Ygrid);
                 ctx.lineTo(canvas.width - 5, i * Ygrid);
             }
-            for (let j = 0; j <= 10; j++) {
-                ctx.moveTo(j * Xgrid, 5);
-                ctx.lineTo(j * Xgrid, canvas.height - 60);
-            }
             ctx.stroke();
 
             // Draw the currency rate line plot
@@ -58,13 +53,13 @@
             ctx.strokeStyle = 'red';
             ctx.beginPath();
             for (let i = 0; i < values.length; i++) {
-                const x = i * Xstep;
+                const x = i * Xstep + 50;
                 const y = canvas.height - (values[i].rate - min) * Ystep - 60;
                 console.info(i, y, " = ", values[i].rate);
                 if (i !== 0) {
-                    ctx.lineTo(x + 50, y);
+                    ctx.lineTo(x, y);
                 } else {
-                    ctx.moveTo(x + 50, y);
+                    ctx.moveTo(x, y);
                 }
             }
             ctx.stroke();
@@ -73,13 +68,10 @@
             ctx.fillStyle = 'black';
             ctx.font = '12px Arial';
             ctx.textAlign = 'center';
-            for (let i = 0; i < values.length; i += 3) {
-                const x = i * Xstep;
+            for (let i = 0; i < values.length; i += 31) {
+                const x = i * (canvas.width - 85) / values.length + 70;
                 const date = values[i].date;
-                ctx.save();
-                ctx.rotate(-Math.PI / 2);
-                ctx.fillText(date, -canvas.height + 35, x + 50);
-                ctx.restore();
+                ctx.fillText(date, x, canvas.height - 20);
             }
 
             // Draw the y-axis labels
