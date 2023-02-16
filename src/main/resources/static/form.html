@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Официальные курсы валют</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+    <h1 class="heading">Курс валют</h1>
+</div>
+
+<form action="http://localhost:8080/nces/history" method="get" target="_self">
+    <div class="form-group">
+        <label for="cur_id">Валюта</label>
+        <select name="cur_id" class="form-control" id="cur_id" required>
+            <option value="" selected disabled hidden>Веберите валюту</option>
+            <option value="513">AED</option>
+            <option value="440">AUD</option>
+            <option value="510">AMD</option>
+            <option value="441">BGN</option>
+            <option value="514">BRL</option>
+            <option value="371">CAD</option>
+            <option value="426">CHF</option>
+            <option value="462">CNY</option>
+            <option value="463">CZK</option>
+            <option value="450">DKK</option>
+            <option value="451">EUR</option>
+            <option value="429">GBP</option>
+            <option value="453">ISK</option>
+            <option value="511">INR</option>
+            <option value="461">IRR</option>
+            <option value="508">JPY</option>
+            <option value="458">KGS</option>
+            <option value="459">KZT</option>
+            <option value="394">KWD</option>
+            <option value="454">MDL</option>
+            <option value="448">NZD</option>
+            <option value="455">NOK</option>
+            <option value="452">PLN</option>
+            <option value="456">RUB</option>
+            <option value="421">SGD</option>
+            <option value="464">SEK</option>
+            <option value="460">TRY</option>
+            <option value="449">UAH</option>
+            <option value="431">USD</option>
+            <option value="512">VND</option>
+            <option value="457">XDR</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="startDate">Дата от</label>
+        <input type="date" name="startdate" class="form-control" id="startDate" required>
+    </div>
+    <div class="form-group">
+        <label for="endDate">Дата до</label>
+        <input type="date" name="enddate" class="form-control" id="endDate" required>
+    </div>
+    <div class="bton">
+        <button id="submitForm" type="submit" class="btn btn-primary">Выполнить</button>
+    </div>
+    <div class="bton">
+        <button id="btn" type="reset" class="btn btn-primary">Сбросить</button>
+    </div>
+</form>
+</body>
+<footer>
+    <p class="link">Посмотреть<a href="http://localhost:8080/nces/currencies" target="_self">&nbsp;все валюты</a></p>
+    <p class="link">Powered by<a href="https://t.me/valentine_kalinin">&nbsp;Valentine Kalinin</a></p>
+</footer>
+</html>

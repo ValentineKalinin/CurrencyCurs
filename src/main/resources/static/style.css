@@ -1,10 +1,32 @@
-.heading {
-    text-align: left;
-    margin-left: 60px;
+.plot-page-body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.link, .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.myCanvas {
+    display: block;
+    margin: auto;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+    color: blue;
 }
 
 form {
     width: 420px;
+    margin: auto;
+    display: block;
 }
 
 .form-group {
@@ -23,19 +45,12 @@ button, input {
     float: right;
 }
 
-.powered {
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
 .bton {
     display: inline-block;
-    margin-left: 110px;
-    margin-right: -105px;
-    margin-top: 15px;
+    margin: 15px -105px 5px 110px;
 }
 
-.highcharts-figure,
+/*.highcharts-figure,
 .highcharts-data-table table {
     min-width: 360px;
     max-width: 800px;
@@ -76,4 +91,4 @@ button, input {
 
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
-}
+}*/
